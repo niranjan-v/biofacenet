@@ -25,6 +25,6 @@ class CustomTensorDataset(Dataset):
 
 def linimg(img):
     #invert gamma and adjust mean
-    muim = torch.tensor([129.1863,104.7624,93.5940])/255
+    muim = torch.tensor([0.5394,0.4184,0.3569])
     imgLinear = img**2.2 - muim.view(-1,1,1)
     return imgLinear

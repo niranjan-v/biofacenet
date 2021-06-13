@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
-# from helper import * 
 
 def EncoderBlock(filters, doubleconv):
     conv_layers = []
@@ -60,14 +59,6 @@ def DecoderBlock(filters, doubleconv):
     deconv_layers.append(nn.Conv2d(filters[0], 1, kernel_size=3, padding=1))
 
     return deconv_layers
-
-def weights_init(m):
-    if type(m) in [nn.Linear]:
-        m.weight.data = torch.randn(m.weight.data.shape).double() * math.sqrt(2/m.weight.data.shape[1])
-        m.bias.data = torch.randn(m.bias.data.shape).double() * math.sqrt(2/m.weight.data.shape[1])
-    elif type(m) in [nn.Conv2d]:
-        m.weight.data = torch.randn(m.weight.data.shape).double() * math.sqrt(2/(m.weight.data.shape[0]*m.weight.data.shape[1]*m.weight.data.shape[2]))
-        m.bias.data = torch.randn(m.bias.data.shape).double() * math.sqrt(2/(m.weight.data.shape[0]*m.weight.data.shape[1]*m.weight.data.shape[2]))
 
 class CNN(nn.Module):
     def __init__(self, nclass=4, filters=[32, 64, 128, 256, 512], doubleconv=True, LightVectorSize=15,bSize=2):
@@ -128,9 +119,3 @@ class CNN(nn.Module):
         specmask = z[:,3] # [N,H,W]
 
         return lightingparameters,b,fmel,fblood,Shading,specmask
-
-    def init_weights(self) :
-        self.encoder.apply(weights_init) 
-        self.decoders.apply(weights_init)
-        self.fc.apply(weights_init)
-
