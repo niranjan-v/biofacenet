@@ -21,7 +21,7 @@ def scalingNet(lightingparameters,b,fmel,fblood,Shading,specmask,bSize=2):
     Fweights = lightingweights[:,2:14] # [N,12]
     CCT = lightingparameters[:,14] # [N]
     CCT = (21/(1 + torch.exp(-CCT))) # scale [0-21] since 0 indexing
-    #
+    
     b = 6*torch.sigmoid(b) - 3
     BGrid =  b/3.0  #
 
