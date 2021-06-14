@@ -47,7 +47,7 @@ class Utils():
                         [-0.9689, 1.8758, 0.0415], 
                         [0.0557, -0.2040, 1.057]]).to(device)
 
-        self.muim = torch.tensor([0.5394,0.4184,0.3569])
+        self.muim = torch.tensor([0.5394,0.4184,0.3569]).to(device)
 
         data=io.loadmat(path+'CamPCA.mat')
         self.EV=torch.tensor(data['EV']).to(device)
