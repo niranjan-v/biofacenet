@@ -1,0 +1,15 @@
+This repo is a pytorch implementation of the paper BIOFACENET: DEEP BIOPHYSICAL FACE INTERPRETATION by ALOTAIBI AND SMITH. 
+
+software requirements : numpy, pytorch, matplotlib
+
+to train the model, run : 
+  python train.py --tdata <path to train data file> --vdata <path to validation/test data file>
+see preparedata.py for details about expected data format and script to generate the data.
+
+to test the model, run :
+  python test.py --data <path to test data> --model <path to pretrained model>
+  
+to prepare the data, run :
+  python preparedata.py --inmc <path to inmc data file> --lrgb <path to lrgb data file>
+please check preparedata.py for more details
+
