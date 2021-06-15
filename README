@@ -1,6 +1,35 @@
 This repo is a pytorch implementation of the paper BIOFACENET: DEEP BIOPHYSICAL FACE INTERPRETATION by ALOTAIBI AND SMITH. 
 
-software requirements : numpy, pytorch, matplotlib
+software requirements : numpy, pytorch, matplotlib, h5py
+
+code structure:
+./
+├── CustomTensorDataset.py
+├── Utils.py
+├── helpers.py
+├── model.py
+├── preparedata.py
+├── test.py
+├── train.py
+└── util
+    ├── CamPCA.mat
+    ├── Newskincolour.mat
+    ├── Tmatrix.mat
+    ├── XYZspace.mat
+    ├── illF.mat
+    ├── illumA.mat
+    ├── illumDmeasured.mat
+    └── rgbCMF.mat
+
+
+> The encoder decoder architecture has been defined in the CNN class in model.py.  
+> Various auxiliary  functions have been defined in helper.py. These are mostly python versions of the 
+  functions defined in the original matlab implementation along with a few other functions to modularize 
+  the training code. 
+> Dataloader and transforms applied on the training data have been defined in CustomTensorDataset.py
+> util/ contains various data provided in the original code. 
+> In Utils.py, a class is defined to load all the required data from util/ and store predefined parameters. 
+> train.py, test.py, preparedata.py are the scripts to train the model, test the model and prepare the data respectively.
 
 to train the model, run : 
   python train.py --tdata <path to train data file> --vdata <path to validation/test data file>
@@ -12,4 +41,3 @@ to test the model, run :
 to prepare the data, run :
   python preparedata.py --inmc <path to inmc data file> --lrgb <path to lrgb data file>
 please check preparedata.py for more details
-
