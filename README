@@ -27,8 +27,8 @@ code structure:
   functions defined in the original matlab implementation along with a few other functions to modularize 
   the training code. 
 > Dataloader and transforms applied on the training data have been defined in CustomTensorDataset.py
-> util/ contains various data provided in the original code. 
-> In Utils.py, a class is defined to load all the required data from util/ and store predefined parameters. 
+> util/ contains prior data provided with the original code. 
+> In Utils.py, a class is defined to load all the required data from util/ and store the predefined parameters. 
 > train.py, test.py, preparedata.py are the scripts to train the model, test the model and prepare the data respectively.
 
 to train the model, run : 
