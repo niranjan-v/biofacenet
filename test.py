@@ -38,8 +38,8 @@ if __name__ == '__main__':
 
     model.load_state_dict(torch.load(model_path))
 
-    start_idx=0 #run data[start_idx:start_idx+batch_sz] through the model
-    batch_sz=2
+    start_idx=100 #run data[start_idx:start_idx+batch_sz] through the model
+    batch_sz=64
     images1=data[start_idx:start_idx+batch_sz,0:3]
     images=(data[start_idx:start_idx+batch_sz,0:3].to(device))**2.2 - u.muim.view(-1,1,1) #invert gamma correction and centre data to pass on as i/p to network
     actualmasks=data[start_idx:start_idx+batch_sz,3].to(device)

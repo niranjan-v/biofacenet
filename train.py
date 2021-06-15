@@ -29,17 +29,17 @@ if __name__ == '__main__':
     vdata =  torch.load(vdata_path).float()
 
     train_d = CustomTensorDataset(tensors=(tdata[:,0:3], tdata[:,3:]), transform=linimg)
-    train_loader = utils.DataLoader(train_d, batch_size=2, shuffle=True, num_workers=1)
+    train_loader = utils.DataLoader(train_d, batch_size=64, shuffle=True, num_workers=1)
 
     val_d = CustomTensorDataset(tensors=(vdata[:,0:3], vdata[:,3:]), transform=linimg)
-    val_loader = utils.DataLoader(val_d, batch_size=2, shuffle=True, num_workers=1)
+    val_loader = utils.DataLoader(val_d, batch_size=64, shuffle=True, num_workers=1)
 
     use_cuda = torch.cuda.is_available()
     device = torch.device("cuda:0" if use_cuda else "cpu")
     u = Utils('./util/',device)
     model = CNN(nclass=4, filters=[32, 64, 128, 256, 512], doubleconv=True, LightVectorSize=u.LightVectorSize,bSize=u.bSize).to(device)
     optimizer = optim.Adam(model.parameters(), lr=1e-5)
-    epochs = 10
+    epochs = 200
     train_losses = []
     val_losses = []
     lepoch = -1 #last epoch

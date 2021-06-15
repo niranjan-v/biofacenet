@@ -12,7 +12,7 @@ c4 = 0.886227
 c5 = 0.247708
 def KMat(L):
     '''
-    see equation(5) in equation (4) from https://arxiv.org/pdf/1704.04131.pdf 
+    see equation(5) in https://arxiv.org/pdf/1704.04131.pdf 
     '''
     r0=np.array([c1*L[8], c1*L[4], c1*L[7], c2*L[3] ])
     r1=np.array([c1*L[4], -c1*L[8], c1*L[5], c2*L[1] ])
