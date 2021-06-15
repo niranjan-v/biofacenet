@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import numpy as np
 
 def scalingNet(lightingparameters,b,fmel,fblood,Shading,specmask,bSize=2):
     '''
@@ -267,3 +268,16 @@ def calc_loss(images,actualmasks,actualshading,lightingparameters,b,fmel,fblood,
     loss_s = torch.tensor([aploss.item(), shloss.item(), prloss.item(), sploss.item()]) #loss breakdown
 
     return loss, loss_s
+
+def cstretch(img, a=0., b=1.):
+    '''
+    contrast stretch numpy image
+    '''
+    if len(img.shape) == 2:
+        c = np.min(img)
+        d = np.max(img)
+        img=(img-c)/(d-c)*(b-a) + a
+        return img
+    for i in range(3):
+        img[:,:,i]=cstretch(img[:,:,i],a,b)
+    return img
