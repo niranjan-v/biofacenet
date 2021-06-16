@@ -41,7 +41,9 @@ def rgb2gray(rgb):
     return gimg
 
 '''
-download files from : https://drive.google.com/drive/folders/1UMiaw36z2E1F-tUBSMKNAjpx0o2TePvF
+Each data part has 2 relevant files - lrgb, and inmc. 
+The lrgb file has the spherical harmonics data and the inmc file contains the images, normals,  face masks, and coordinates data. 
+download these files from : https://drive.google.com/drive/folders/1UMiaw36z2E1F-tUBSMKNAjpx0o2TePvF
 for eg, to prepare test data, download zx_7_d10_inmc_celebA_20.hdf5 and zx_7_d3_lrgb_celebA_20.hdf5
 to genearete data, run 
     python --inmc <path>/zx_7_d10_inmc_celebA_20.hdf5 --lrgb <path>/zx_7_d3_lrgb_celebA_20.hdf5
