@@ -22,8 +22,8 @@ code structure:
     └── rgbCMF.mat
 
 
-> The encoder decoder architecture has been defined in the CNN class in model.py. EncoderBlock and DecoderBlock are helper functions that 
-  take filter sizes as input and return the sequence of layers.
+> The encoder decoder architecture has been defined in the CNN class in model.py. EncoderBlock and DecoderBlock are 
+  helper functions that take filter sizes as input and return the sequence of layers.
 > Various auxiliary  functions have been defined in helper.py. These are mostly python versions of the 
   functions defined in the original matlab implementation along with a few other functions to modularize 
   the training code. Tensor manipulations have been efficiently used to optimize the code.
