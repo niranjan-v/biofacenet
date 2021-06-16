@@ -71,12 +71,10 @@ if __name__ == '__main__':
         axs[0,1].set_title("reconstructed img")
         axs[0,1].imshow((sRGBim[i]**actualmasks[i]).permute(1,2,0).detach().cpu().numpy()**(1/2.2))
         axs[0,1].axis('off')
-
-        
+  
         axs[1,0].set_title("melanin map")
         axs[1,0].imshow(cm.jet(0.5*(1+fmel[i]).detach().cpu().numpy()) * actualmasks[i].unsqueeze(-1).cpu().numpy())
         axs[1,0].axis('off')
-
 
         axs[1,1].set_title("haemoglobin map")
         axs[1,1].imshow(cm.hot(0.5*(1+fblood[i]).detach().cpu().numpy()) * actualmasks[i].unsqueeze(-1).cpu().numpy())
@@ -85,7 +83,6 @@ if __name__ == '__main__':
         axs[2,0].set_title("shading map")
         axs[2,0].imshow(cstretch(predictedShading[i].detach().cpu().numpy()) ** actualmasks[i].cpu().numpy(), cmap='gray')
         axs[2,0].axis('off')
-
 
         axs[2,1].set_title("specularities map")
         axs[2,1].imshow(cstretch(specmask[i].detach().cpu().numpy()) ** actualmasks[i].cpu().numpy(), cmap='gray')
