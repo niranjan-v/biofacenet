@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
 ## display results
 
-    inums = [0,1] #pick a few indices to display 
+    inums = [30,40] #pick a few indices to display 
     for i in inums:
         fig, axs = plt.subplots(3,2)
 
