@@ -37,6 +37,7 @@ if __name__ == '__main__':
     model = CNN(nclass=4, filters=[32, 64, 128, 256, 512], doubleconv=True, LightVectorSize=u.LightVectorSize,bSize=u.bSize).to(device)
 
     model.load_state_dict(torch.load(model_path))
+    model.eval()
 
     start_idx=100 #run data[start_idx:start_idx+batch_sz] through the model
     batch_sz=64
