@@ -44,7 +44,6 @@ if __name__ == '__main__':
     m_mxp = nn.MaxPool2d(2,2) #use max pooling to downsample image to 64 x 64
     images = m_aap(images[0:64].permute(0,3,1,2))
     masks = m_mxp(masks[0:64].permute(0,3,1,2))
-
     ###
 
     use_cuda = torch.cuda.is_available()
@@ -55,7 +54,6 @@ if __name__ == '__main__':
 
     model.load_state_dict(torch.load(model_path))
     model.eval()
-
 
     images_lc=(images.to(device))**2.2 - u.muim.view(-1,1,1) #invert gamma correction and centre the data
     actualmasks=masks.squeeze().to(device)
